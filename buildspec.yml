@@ -16,5 +16,5 @@ phases:
       - bash -c "if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then exit 1; fi"
       - echo Build stage successfully completed on `date`
       - echo Pushing the Docker image...
-      - docker tag songs:latest 793766633546.dkr.ecr.us-west-2.amazonaws.com/songs:v1
+      - docker tag songs:latest 793766633546.dkr.ecr.us-west-2.amazonaws.com/songs:latest
       - docker push 793766633546.dkr.ecr.us-east-1.amazonaws.com/songs:latest
