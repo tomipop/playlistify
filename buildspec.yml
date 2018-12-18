@@ -18,4 +18,6 @@ phases:
       - echo Pushing the Docker image...
       - docker tag playlist:latest 793766633546.dkr.ecr.us-east-1.amazonaws.com/playlist:latest
       - docker push 793766633546.dkr.ecr.us-east-1.amazonaws.com/playlist:latest
+artifacts:
+files: images.json
 
