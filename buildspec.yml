@@ -10,12 +10,12 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t songs .
+      - docker build -t playlist .
   post_build:
     commands:
       - bash -c "if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then exit 1; fi"
       - echo Build stage successfully completed on `date`
       - echo Pushing the Docker image...
-      - docker tag playlist:latest 793766633546.dkr.ecr.us-east-1.amazonaws.com/playlist:v1
+      - docker tag playlist:latest 793766633546.dkr.ecr.us-east-1.amazonaws.com/playlist:latest
       - docker push 793766633546.dkr.ecr.us-east-1.amazonaws.com/playlist:latest
 
