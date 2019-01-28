@@ -4,8 +4,8 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - $(aws ecr get-login --no-include-email --region us-east-1)
-      - IMAGE_URI="793766633546.dkr.ecr.us-east-1.amazonaws.com/playlist"
+      - $(aws ecr get-login --no-include-email --region <REGION>)
+      - IMAGE_URI="<USERID>.dkr.ecr.<REGION>.amazonaws.com/playlist"
   build:
     commands:
       - echo Build started on `date`
@@ -16,5 +16,5 @@ phases:
       - bash -c "if [ /"$CODEBUILD_BUILD_SUCCEEDING/" == /"0/" ]; then exit 1; fi"
       - echo Build stage successfully completed on `date`
       - echo Pushing the Docker image...
-      - docker tag playlist:latest 793766633546.dkr.ecr.us-east-1.amazonaws.com/playlist:latest
-      - docker push 793766633546.dkr.ecr.us-east-1.amazonaws.com/playlist:latest
+      - docker tag playlist:latest <USERID>.dkr.ecr.<REGION>.amazonaws.com/playlist:latest
+      - docker push <USERID>.dkr.ecr.<REGION>.amazonaws.com/playlist:latest
